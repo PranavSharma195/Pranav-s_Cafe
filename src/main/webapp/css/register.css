@@ -1,0 +1,142 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1f213e;
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding: 5vh 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1f213e;
+  }
+  
+  .logo {
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1vh;
+  }
+  
+  .tagline {
+    color: #c1a15e;
+    font-weight: bold;
+    letter-spacing: 0.2vw;
+    margin-bottom: 4vh;
+    font-size: 1.2vw;
+  }
+  
+  h2 {
+    font-size: 2.5vw;
+    color: #c1a15e;
+    margin-bottom: 2vh;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin: 1vh 0 0.5vh;
+    font-size: 1vw;
+  }
+  
+  input {
+    padding: 1.2vh 1vw;
+    margin-bottom: 1.5vh;
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1vw;
+  }
+  
+  .buttons {
+    margin-top: 2vh;
+    display: flex;
+    gap: 1vw;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 1vh 1.5vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    font-size: 1vw;
+  }
+  
+  .primary {
+    background-color: #c1a15e;
+    color: #1f213e;
+  }
+  
+  
+  
+  error {
+    color: red;
+    font-size: 25px;
+    margin-top: 3px;
+}
+  
+  .image-section {
+    flex: 1;
+    background-image: url("${pageContext.request.contextPath}/resources/images/system/registerbackground.jpeg");
+    background-size: cover;
+    background-position: center;
+    /* border-top-left-radius: 100% 40%; */
+  }
+  
+  .error {
+  
+      color: red;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #ccc;
+      border-radius: 5px;
+    }
+
+    .btn.primary {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      padding: 0;
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  

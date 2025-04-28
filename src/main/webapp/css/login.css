@@ -1,0 +1,146 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #14162b; /* Darker background for contrast */
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+   .error {
+  
+      color:red;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+  
+  .form-section {
+    flex: 0.4;
+    padding: 5vh 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1f213e;
+    border-radius: 1vw;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); /* More prominent shadow */
+    margin: auto 2vw auto 4vw;
+    z-index: 2;
+  }
+  
+  .logo {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1vh;
+  }
+  
+  .tagline {
+    color: #c1a15e;
+    font-weight: bold;
+    letter-spacing: 0.15vw;
+    margin-bottom: 4vh;
+    font-size: 1vw;
+  }
+  
+  h2 {
+    font-size: 2vw;
+    color: #c1a15e;
+    margin-bottom: 2vh;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: 600;
+    margin: 1vh 0 0.5vh;
+    font-size: 0.9vw;
+  }
+  
+  input {
+    padding: 0.8vh 1vw;
+    margin-bottom: 1.5vh;
+    border: none;
+    border-radius: 0.4vw;
+    font-size: 0.9vw;
+    background-color: #f9f9f9;
+    color: #333;
+    box-shadow: inset 0 0 0.5vh rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0.4vh #c1a15e;
+  }
+  
+  .buttons {
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 1vh 1.5vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    font-size: 0.9vw;
+    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-0.2vh);
+  }
+  
+  .primary {
+    background-color: #c1a15e;
+    color: #1f213e;
+  }
+  
+  .primary:hover {
+    background-color: #b3924f;
+  }
+  
+  .forgot {
+    color: white;
+    font-size: 0.85vw;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .nutrition {
+    margin-top: 4vh;
+    font-size: 0.85vw;
+    color: #ddd;
+    max-width: 85%;
+  }
+  
+  .nutrition strong {
+    font-size: 3vw;
+    display: block;
+    margin-bottom: 1vh;
+    color: #ffffff;
+  }
+  
+  
+  

@@ -1,0 +1,163 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdf6f0;
+    color: #3e2723;
+  }
+
+  .dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .sidebar {
+  width: 260px;
+  background: linear-gradient(to bottom, #6d4c41, #4e342e);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50%;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/847/847969.png');
+  background-size: cover;
+  background-position: center;
+  border: 3px solid #d7ccc8;
+}
+
+.nav-button {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  color: #fcefe8;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+  .main-content {
+    flex: 1;
+    padding: 4vh 3vw;
+    overflow-y: auto;
+  }
+
+  h1 {
+    margin-bottom: 3vh;
+    font-size: 2vw;
+    color: #4e342e;
+  }
+
+  .table-container {
+    background-color: #ffffff;
+    padding: 3vh 2vw;
+    border-radius: 1vw;
+    box-shadow: 0 0.4vh 1vh rgba(0, 0, 0, 0.05);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1vw;
+  }
+
+  th, td {
+    padding: 1.2vh 1vw;
+    border-bottom: 0.2vh solid #d7ccc8;
+    text-align: left;
+  }
+
+  th {
+    background-color: #8d6e63;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 95%;
+    padding: 1vh 0.5vw;
+    font-size: 1vw;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.4vw;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1vw;
+  }
+
+  .actions button {
+    flex: 1;
+    padding: 1vh 1vw;
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 0.9vw;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .edit-btn {
+    background-color: #6d4c41;
+    color: white;
+  }
+
+  .edit-btn:hover {
+    background-color: #5d4037;
+    transform: scale(1.05);
+  }
+
+  .delete-btn {
+    background-color: #a1887f;
+    color: white;
+  }
+
+  .delete-btn:hover {
+    background-color: #8d6e63;
+    transform: scale(1.05);
+  }
+
+  .add-row {
+    margin-top: 3vh;
+    text-align: right;
+  }
+
+  .add-btn {
+    background-color: #4e342e;
+    color: #fff;
+    padding: 1.5vh 2vw;
+    font-size: 1vw;
+    border: none;
+    border-radius: 0.6vw;
+    cursor: pointer;
+    box-shadow: 0 0.3vh 0.8vh rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .add-btn:hover {
+    background-color: #3e2723;
+    transform: scale(1.05);
+  }
+  
+  
