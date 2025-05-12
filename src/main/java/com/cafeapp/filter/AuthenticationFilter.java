@@ -52,15 +52,18 @@ public class AuthenticationFilter implements Filter {
 		boolean isLoggedIn = SessionUtil.getAttribute(req, "username") != null;
 		Cookie roleCookie = CookieUtil.getCookie(req, "role");
 		String role = (roleCookie != null) ? roleCookie.getValue() : null;
-		System.out.println(role);
-		System.out.println(isLoggedIn);
+
+
+		
 
 		// Pages open to everyone
+		// Pages open to everyone
 		if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER) || uri.endsWith(HOME) || uri.endsWith(ABOUT)
-				|| uri.endsWith(CONTACT) || uri.equals(req.getContextPath() + ROOT)) {
-			chain.doFilter(request, response);
-			return;
+		        || uri.endsWith(CONTACT) || uri.endsWith("/logout") || uri.equals(req.getContextPath() + ROOT)) {
+		    chain.doFilter(request, response);
+		    return;
 		}
+
 
 		// Admin-only pages
 		if (uri.endsWith(ADMIN_DASHBOARD) || uri.endsWith(EDIT_ITEMS) || uri.endsWith(ADMIN_PROFILE)) {
@@ -86,13 +89,4 @@ public class AuthenticationFilter implements Filter {
 		res.sendRedirect(req.getContextPath() + LOGIN);
 	}
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		// Optional init logic
-	}
-
-	@Override
-	public void destroy() {
-		// Optional cleanup logic
-	}
 }

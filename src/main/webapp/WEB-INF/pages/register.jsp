@@ -27,31 +27,31 @@
 
       <form action="register" method="post" enctype="multipart/form-data">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" value="${nameValue}" required />
+        <input type="text" id="name" name="name" placeholder="Enter your name" value="${nameValue}"  />
         <div class="error">${nameError}</div>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" value="${emailValue}" required />
+        <input type="email" id="email" name="email" placeholder="Enter your email" value="${emailValue}"  />
         <div class="error">${emailError}</div>
 
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" value="${usernameValue}" required />
+        <input type="text" id="username" name="username" placeholder="Enter your username" value="${usernameValue}"  />
         <div class="error">${usernameError}</div>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" required />
+        <input type="password" id="password" name="password" placeholder="Enter password"  />
         <div class="error">${passwordError}</div>
 
         <label for="confirmpassword">Confirm Password</label>
-        <input type="password" id="confirmpassword" name="confirmPassword" placeholder="Confirm password" required />
+        <input type="password" id="confirmpassword" name="confirmPassword" placeholder="Confirm password"  />
         <div class="error">${confirmPasswordError}</div>
 
         <label for="mobile">Mobile Number</label>
-        <input type="text" id="phone" name="phone" placeholder="Enter mobile number" value="${phoneValue}" required />
+        <input type="text" id="phone" name="phone" placeholder="Enter mobile number" value="${phoneValue}"  />
         <div class="error">${phoneError}</div>
 
         <label for="upload">Upload</label>
-        <input type="file" id="imagePath" name="imagePath" accept="image/*" required />
+        <input type="file" id="imagePath" name="imagePath" accept="image/*"  />
 
         <div class="buttons">
           <button type="submit" class="btn primary">Signup</button>

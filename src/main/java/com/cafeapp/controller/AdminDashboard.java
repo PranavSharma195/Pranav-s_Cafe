@@ -52,6 +52,8 @@ public class AdminDashboard extends HttpServlet {
         request.setAttribute("products", productList);
 
         int userCount = userService.getUserCount();
+
+
         request.setAttribute("userCount", userCount);
 
         request.getRequestDispatcher("WEB-INF/pages/admindashboard.jsp").forward(request, response);

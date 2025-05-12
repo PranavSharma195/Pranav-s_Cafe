@@ -1,32 +1,32 @@
 package com.cafeapp.service;
 
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import com.cafeapp.config.DbConfig;
+import com.cafeapp.model.OrderModel;
 
 public class OrderService {
-
-    public boolean hasUserOrdered(int userId) throws Exception {
-        try (Connection conn = DbConfig.getDbConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT 1 FROM Order WHERE User_ID = ?")) {
-        	
-            stmt.setInt(1, userId);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next(); // true if order exists
-        }
-    }
-
-    public boolean placeOrder(int userId, int productId) throws Exception {
-        try (Connection conn = DbConfig.getDbConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO Order (User_ID, Product_ID, Quantity) VALUES (?, ?, 1)")) {
-            stmt.setInt(1, userId);
-            stmt.setInt(2, productId);
-            int rows = stmt.executeUpdate();
-            return rows > 0;
-        }
+    public void savePurchase(OrderModel order) throws Exception {
+        // Get database connection
+        Connection conn = DbConfig.getDbConnection();
+        
+        // Use backticks to escape the reserved keyword "Order"
+        String sql = "INSERT INTO `Order` (User_ID, Item_ID) VALUES (?, ?)";
+        
+        // Prepare the statement with the SQL query
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        
+        // Set the parameters from the OrderModel object
+        stmt.setInt(1, order.getUserid());
+        
+        stmt.setInt(2, order.getProductid());
+        
+        // Execute the update to insert the record
+        stmt.executeUpdate();
+        
+        // Close the statement and connection
+        stmt.close();
+        conn.close();
     }
 }

@@ -163,7 +163,7 @@ public class Register extends HttpServlet {
 	        response.sendRedirect(request.getContextPath() + "/login");
 	    } else {
 	        request.setAttribute("formError", "Something went wrong while registering. Please try again.");
-	        request.getRequestDispatcher("WEB-INF/pages/signup.jsp").forward(request, response);
+	        request.getRequestDispatcher("WEB-INF/pages/register.jsp").forward(request, response);
 	    }
 	}
 

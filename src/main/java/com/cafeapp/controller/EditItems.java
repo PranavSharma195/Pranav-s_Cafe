@@ -151,7 +151,7 @@ public class EditItems extends HttpServlet {
         String sql = "UPDATE Product SET Item_Name = ?, Item_Price = ?, Category = ?, Description = ?, Calories = ? WHERE Item_ID = ?";
         try (Connection conn = DbConfig.getDbConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, product.getName());
+        	stmt.setString(1, product.getName());
             stmt.setDouble(2, product.getPrice());
             stmt.setString(3, product.getCategory());
             stmt.setString(4, product.getDescription());

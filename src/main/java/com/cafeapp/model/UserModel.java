@@ -11,6 +11,11 @@ public class UserModel {
 	private String password;
 	private String phoneNumber;
 	private String imagePath;
+	
+	
+	public UserModel() {
+		
+	}
 	public UserModel(String name, String email, String username, String password, String phoneNumber,
 			String imagePath) {
 	

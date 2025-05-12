@@ -76,5 +76,5 @@ public class LoginService {
         String decryptedPassword = PasswordUtil.decrypt(dbPassword, dbUsername);
 
         return decryptedPassword.equals(userModel.getPassword());
-    }
+   }
 }

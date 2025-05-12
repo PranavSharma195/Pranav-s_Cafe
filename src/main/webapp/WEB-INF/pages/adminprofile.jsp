@@ -1,13 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     com.cafeapp.model.UserModel user = (com.cafeapp.model.UserModel) request.getAttribute("user");
+    String success = (String) request.getAttribute("success");
+    String error = (String) request.getAttribute("error");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>User Profile</title>
+  <title>Admin Profile</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/profile.css">
   <style>
   * {
@@ -186,17 +188,16 @@
     min-width: 100px;
   }
 </style>
-
 </head>
 <body>
 
   <div class="profile-wrapper">
-    
+
     <!-- Static Info -->
     <div class="box profile-info-box">
       <div class="profile-icon">
-  <img src="<%= request.getContextPath() + "/resources/images/system/" + user.getImagePath() %>" alt="Profile Image" width="100" style="width:16vh" />
-</div>
+        <img src="<%= request.getContextPath() + "/resources/images/system/" + user.getImagePath() %>" alt="Profile Image" />
+      </div>
 
       <h2>Profile Information</h2>
       <div class="profile-details">
@@ -204,32 +205,41 @@
         <p><strong>Email:</strong> <%= user.getEmail() %></p>
         <p><strong>Password:</strong> ********</p>
         <p><strong>Phone:</strong> <%= user.getPhoneNumber() %></p>
-        <a style="width:100%;" href="${pageContext.request.contextPath}/login"><button type="button" class="logout-btn">Logout</button></a>
+        <form action="${pageContext.request.contextPath}/logout" method="post">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
       </div>
     </div>
 
     <!-- Editable Form -->
     <div class="box form-box">
       <h2>Edit Profile</h2>
-      <form action="updateProfile.jsp" method="post">
+
+      <% if (success != null) { %>
+        <p style="color: lightgreen; text-align: center;"><%= success %></p>
+      <% } else if (error != null) { %>
+        <p style="color: tomato; text-align: center;"><%= error %></p>
+      <% } %>
+
+      <form action="${pageContext.request.contextPath}/adminprofile" method="post">
         <div class="input-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" value="${name}" required>
+          <input type="text" id="name" name="name" value="<%= user.getName() %>" required>
         </div>
         <div class="input-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" value="${email}" required>
+          <input type="email" id="email" name="email" value="<%= user.getEmail() %>" required>
         </div>
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" value="${password}" required>
+          <input type="password" id="password" name="password" value="" placeholder="Enter new password" >
         </div>
         <div class="input-group">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" value="${phone}" required>
+          <input type="tel" id="phone" name="phone" value="<%= user.getPhoneNumber() %>" required>
         </div>
         <div class="btn-group">
-          <a style="width:100%;" href="${pageContext.request.contextPath}/admindashboard"><button type="button" class="back-btn">📶← Back to Dashboard</button></a>
+          <button type="button" class="back-btn" onclick="location.href='${pageContext.request.contextPath}/admindashboard'">← Back to Dashboard</button>
           <button type="submit" class="update-btn">Update Profile</button>
         </div>
       </form>

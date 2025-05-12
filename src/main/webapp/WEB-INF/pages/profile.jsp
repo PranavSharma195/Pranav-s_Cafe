@@ -1,14 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     com.cafeapp.model.UserModel user = (com.cafeapp.model.UserModel) request.getAttribute("user");
+    String successMessage = (String) request.getAttribute("success");
+    String errorMessage = (String) request.getAttribute("error");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Profile</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/profile.css">
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/profile.css">
   <style>
   * {
     box-sizing: border-box;
@@ -186,55 +187,64 @@
     min-width: 100px;
   }
 </style>
-
 </head>
 <body>
 
   <div class="profile-wrapper">
-    
-    <!-- Static Info -->
+
+    <!-- Left Profile Box -->
     <div class="box profile-info-box">
       <div class="profile-icon">
-  <img src="<%= request.getContextPath() + "/resources/images/system/" + user.getImagePath() %>" alt="Profile Image" width="100" style="width:16vh" />
-</div>
-
+        <img src="<%= request.getContextPath() + "/resources/images/system/" + user.getImagePath() %>" alt="Profile Image" />
+      </div>
       <h2>Profile Information</h2>
       <div class="profile-details">
         <p><strong>Name:</strong> <%= user.getName() %></p>
         <p><strong>Email:</strong> <%= user.getEmail() %></p>
         <p><strong>Password:</strong> ********</p>
         <p><strong>Phone:</strong> <%= user.getPhoneNumber() %></p>
-        <a style="width:100%;" href="${pageContext.request.contextPath}/login"><button type="button" class="logout-btn">Logout</button></a>
+        <form action="<%= request.getContextPath() %>/logout" method="post">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
       </div>
     </div>
 
-    <!-- Editable Form -->
+    <!-- Right Editable Form -->
     <div class="box form-box">
       <h2>Edit Profile</h2>
-      <form action="updateProfile.jsp" method="post">
+
+      <% if (successMessage != null) { %>
+        <p style="color:lightgreen; text-align:center;"><%= successMessage %></p>
+      <% } %>
+      <% if (errorMessage != null) { %>
+        <p style="color:salmon; text-align:center;"><%= errorMessage %></p>
+      <% } %>
+
+      <form action="<%= request.getContextPath() %>/profile" method="post">
         <div class="input-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" value="${name}" required>
+          <input type="text" id="name" name="name" value="<%= user.getName() %>" required>
         </div>
         <div class="input-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" value="${email}" required>
+          <input type="email" id="email" name="email" value="<%= user.getEmail() %>" required>
         </div>
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" value="${password}" required>
+          <input type="password" id="password" name="password" value="<%= user.getPassword() %>" required>
         </div>
         <div class="input-group">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" value="${phone}" required>
+          <input type="tel" id="phone" name="phone" value="<%= user.getPhoneNumber() %>" required>
         </div>
         <div class="btn-group">
-          <a style="width:100%;" href="${pageContext.request.contextPath}/home"><button type="button" class="back-btn">🏠︎← Back to Home</button></a>
+          <a href="<%= request.getContextPath() %>/home" style="width: 100%;">
+            <button type="button" class="back-btn">🏠︎← Back to Home</button>
+          </a>
           <button type="submit" class="update-btn">Update Profile</button>
         </div>
       </form>
     </div>
-
   </div>
 
 </body>
