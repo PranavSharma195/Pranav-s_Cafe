@@ -1,6 +1,7 @@
 package com.cafeapp.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -10,15 +11,40 @@ import com.cafeapp.service.ProfileService;
 import com.cafeapp.util.PasswordUtil;
 import com.cafeapp.util.SessionUtil;
 
+/**
+ * Author: Pranav_Sharma LMU ID: 23048577 Handles the admin profile page
+ * functionality in the cafe application. Supports displaying current admin
+ * profile information and updating profile details.
+ * 
+ * Accessible via the "/adminprofile" URL pattern.
+ * 
+ * 
+ */
 @WebServlet("/adminprofile")
 public class AdminProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProfileService profileService;
 
+	/**
+	 * Initializes the servlet and instantiates the ProfileService used for fetching
+	 * and updating user data.
+	 */
 	public void init() {
 		profileService = new ProfileService();
 	}
 
+	/**
+	 * Handles GET requests to display the admin's profile. Retrieves the current
+	 * user's details from the session and fetches user data from the database. Also
+	 * handles success message display after a profile update.
+	 * 
+	 * @param req  The HttpServletRequest object that contains the request from the
+	 *             client.
+	 * @param resp The HttpServletResponse object that contains the response to be
+	 *             sent to the client.
+	 * @throws ServletException If the request could not be handled.
+	 * @throws IOException      If an input or output error occurs.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = (String) SessionUtil.getAttribute(req, "username");
@@ -37,8 +63,21 @@ public class AdminProfile extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Handles POST requests to update the admin's profile information. Retrieves
+	 * form data, encrypts the password, updates the user in the database, and
+	 * redirects or displays errors based on the result.
+	 * 
+	 * @param request  The HttpServletRequest object that contains the request from
+	 *                 the client.
+	 * @param response The HttpServletResponse object that contains the response to
+	 *                 be sent to the client.
+	 * @throws ServletException If the request could not be handled.
+	 * @throws IOException      If an input or output error occurs.
+	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String username = (String) SessionUtil.getAttribute(request, "username");
 
 		if (username == null) {
